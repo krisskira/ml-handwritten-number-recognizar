@@ -50,5 +50,15 @@ async def calculate(images: List[UploadFile] = File(...), operation: str = Form(
         number = await itn.image_to_number(image)
         numbers.append(number)
 
-    result = await cn.calculate_numbers(numbers, operation)
-    return {"result": result}
+    signature = {
+        "sum": "+",
+        "subtract": "-",
+        "multiply": "*",
+        "divide": "/"
+    }
+
+    result = await cn.calculate_numbers(numbers, signature[operation])
+    response = {"result": result,
+                "signature": signature[operation], "numbers": numbers}
+    print(">>> Response:", response)
+    return response

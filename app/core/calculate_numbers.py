@@ -2,11 +2,11 @@ from typing import List
 
 
 async def calculate_numbers(numbers: List[int], operation: str):
-    if operation == "sum":
+    if operation == "+":
         return sum(numbers)
-    elif operation == "subtract":
+    elif operation == "-":
         return numbers[0] - numbers[1]
-    elif operation == "multiply":
+    elif operation == "*":
         return numbers[0] * numbers[1]
-    elif operation == "divide":
+    elif operation == "/":
         return numbers[0] / numbers[1]

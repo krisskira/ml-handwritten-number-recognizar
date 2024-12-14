@@ -161,7 +161,7 @@ async function onCalculate() {
 function drawCanvas(context, canvasInitial = { x: 0, y: 0 }, x = 0, y = 0) {
   context.beginPath();
   context.lineWidth = 5;
-  context.strokeStyle = "#000000";
+  context.strokeStyle = "#CCCCCC";
   context.lineCap = "round";
   context.lineJoin = "round";
   context.moveTo(canvasInitial.x, canvasInitial.y);
