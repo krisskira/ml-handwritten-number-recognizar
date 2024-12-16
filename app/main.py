@@ -11,8 +11,14 @@ app = FastAPI(
     title="Calculator from ML Image-Reconizer",
     description="App para calcular números con imágenes.",
     version="0.1.0",
+    license_info={
+        "name": "MIT",
+        "url": "https://github.com/krisskira/ml-handwritten-number-recognizar/blob/main/LICENCE",
+        "file": "LICENSE",
+        "type": "MIT"
+    },
     contact={
-        "name": "Crhistian David Vergara Gomez",
+        "name": "Crhistian David Vergara Goméz",
         "url": "https://www.linkedin.com/in/cristian-david-vergara-gomez/",
         "email": "krisskira@gmail.com"
     }
@@ -58,7 +64,5 @@ async def calculate(images: List[UploadFile] = File(...), operation: str = Form(
     }
 
     result = await cn.calculate_numbers(numbers, signature[operation])
-    response = {"result": result,
-                "signature": signature[operation], "numbers": numbers}
-    print(">>> Response:", response)
-    return response
+    return {"result": result,
+            "signature": signature[operation], "numbers": numbers}
